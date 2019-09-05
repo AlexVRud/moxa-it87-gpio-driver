@@ -1,7 +1,9 @@
+KRELEASE ?= $(shell uname -r)
+KBUILD ?= /lib/modules/$(KRELEASE)/build
 obj-m := gpio-it87.o
 
-all:
-	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+modules:
+	$(MAKE) -C $(KBUILD) M=$(PWD) modules
 
 clean:
-	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+	$(MAKE) -C $(KBUILD) M=$(PWD) clean
