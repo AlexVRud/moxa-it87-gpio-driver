@@ -279,10 +279,9 @@ static const struct gpio_chip it87_template_chip = {
 
 static int __init it87_gpio_init(void)
 {
-	int rc = 0, i;
+	int rc = 0;
 	u16 chip_type;
 	u8 chip_rev, gpio_ba_reg;
-	char *labels, **labels_table;
 
 	struct it87_gpio *it87_gpio = &it87_gpio_chip;
 
@@ -360,35 +359,6 @@ static int __init it87_gpio_init(void)
 							KBUILD_MODNAME))
 		return -EBUSY;
 
-	/* Set up aliases for the GPIO connection.
-	 *
-	 * ITE documentation for recent chips such as the IT8728F
-	 * refers to the GPIO lines as GPxy, with a coordinates system
-	 * where x is the GPIO group (starting from 1) and y is the
-	 * bit within the group.
-	 *
-	 * By creating these aliases, we make it easier to understand
-	 * to which GPIO pin we're referring to.
-	 */
-	labels = kcalloc(it87_gpio->chip.ngpio, sizeof("it87_gpXY"),
-								GFP_KERNEL);
-	labels_table = kcalloc(it87_gpio->chip.ngpio, sizeof(const char *),
-								GFP_KERNEL);
-
-	if (!labels || !labels_table) {
-		rc = -ENOMEM;
-		goto labels_free;
-	}
-
-	for (i = 0; i < it87_gpio->chip.ngpio; i++) {
-		char *label = &labels[i * sizeof("it87_gpXY")];
-
-		sprintf(label, "it87_gp%u%u", 1+(i/8), i%8);
-		labels_table[i] = label;
-	}
-
-	it87_gpio->chip.names = (const char *const*)labels_table;
-
 	rc = gpiochip_add_data(&it87_gpio->chip, it87_gpio);
 	if (rc)
 		goto labels_free;
@@ -396,8 +366,6 @@ static int __init it87_gpio_init(void)
 	return 0;
 
 labels_free:
-	kfree(labels_table);
-	kfree(labels);
 	release_region(it87_gpio->io_base, it87_gpio->io_size);
 	return rc;
 }
