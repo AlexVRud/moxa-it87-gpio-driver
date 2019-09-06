@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	$(MAKE) KRELEASE=4.9.0-9-amd64 modules
+
+override_dh_auto_clean:
+	$(MAKE) KRELEASE=4.9.0-9-amd64 clean
