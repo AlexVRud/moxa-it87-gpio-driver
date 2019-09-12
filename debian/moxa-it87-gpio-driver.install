@@ -1,1 +1,1 @@
-gpio-it87.ko /lib/modules/4.9.0-9-amd64/kernel/drivers/gpio
+gpio-it87.ko /lib/modules/4.9.0-11-amd64/kernel/drivers/gpio
