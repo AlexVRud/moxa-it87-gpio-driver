@@ -6,7 +6,7 @@ modules:
 	$(MAKE) -C $(KBUILD) M=$(PWD) modules
 
 install: modules
-	/usr/bin/install -D gpio-it87.ko /lib/modules/$(KRELEASE)/kernel/drivers/gpio
+	/usr/bin/install -D gpio-it87.ko /lib/modules/$(KRELEASE)/kernel/drivers/gpio/gpio-it87.ko
 
 clean:
 	$(MAKE) -C $(KBUILD) M=$(PWD) clean
