@@ -1,3 +1,15 @@
+moxa-it87-gpio-driver (0.2.0) stretch; urgency=medium
+
+  * add build-depends 'debhelper'
+  * add debian/postinst
+  * add conf for modules-load.d
+  * update to linux-headers-4.9.0-11-amd64
+  * update to linux-image-4.9.0-11-amd64
+  * update debian/install
+  * update debian/rules
+
+ -- Remus TY Wu <RemusTY.Wu@moxa.com>  Wed, 18 Sep 2019 10:58:34 +0800
+
 moxa-it87-gpio-driver (0.0.1) stretch; urgency=medium
 
   * Initial Release.
