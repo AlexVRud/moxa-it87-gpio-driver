@@ -1,0 +1,5 @@
+moxa-it87-gpio-driver (5.2+1.0.0) stretch; urgency=medium
+
+  * Initial Release.
+
+ -- Remus Wu <remusty.wu@moxa.com>  Wed, 20 Nov 2019 17:31:15 +0800
