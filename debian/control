@@ -13,5 +13,5 @@ Depends: ${misc:Depends},
 	linux-image-4.9.0-12-amd64
 Description: GPIO functionality of IT87xx Super I/O chips
   This driver is tested with ITE IT8728 and IT8732 Super I/O chips, and
-  supports the IT8761E, IT8613, IT8620E, IT8628E and IT8786E Super I/O
-  chips as well.
+  supports the IT8761E, IT8613, IT8620E, IT8628E, IT8783F and IT8786E
+  Super I/O chips as well.
