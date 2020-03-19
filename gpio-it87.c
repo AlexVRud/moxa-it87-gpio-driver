@@ -31,6 +31,7 @@
 #define IT8732_ID	0x8732
 #define IT8761_ID	0x8761
 #define IT8772_ID	0x8772
+#define IT8783_ID	0x8783
 #define IT8786_ID	0x8786
 
 /* IO Ports */
@@ -330,6 +331,14 @@ static int __init it87_gpio_init(void)
 		it87_gpio->output_base = 0xf0;
 		it87_gpio->simple_size = 0;
 		it87_gpio->chip.ngpio = 16;
+		break;
+	case IT8783_ID:
+		gpio_ba_reg = 0x62;
+		it87_gpio->io_size = 8;
+		it87_gpio->output_base = 0xc8;
+		it87_gpio->simple_base = 0xc0;
+		it87_gpio->simple_size = 5;
+		it87_gpio->chip.ngpio = 48;
 		break;
 	case NO_DEV_ID:
 		pr_err("no device\n");
