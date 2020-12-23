@@ -1,2 +1,2 @@
-gpio-it87.ko /lib/modules/4.19.0-9-amd64/kernel/drivers/gpio
+gpio-it87.ko /lib/modules/4.19.0-13-amd64/kernel/drivers/gpio
 gpio-it87.conf /usr/lib/modules-load.d
