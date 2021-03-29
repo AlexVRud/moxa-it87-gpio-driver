@@ -385,8 +385,6 @@ static void __exit it87_gpio_exit(void)
 
 	gpiochip_remove(&it87_gpio->chip);
 	release_region(it87_gpio->io_base, it87_gpio->io_size);
-	kfree(it87_gpio->chip.names[0]);
-	kfree(it87_gpio->chip.names);
 }
 
 module_init(it87_gpio_init);
