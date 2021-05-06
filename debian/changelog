@@ -1,3 +1,14 @@
+moxa-it87-gpio-driver (5.2+1.2.1+deb10) buster; urgency=medium
+
+  [Changed]
+  * Change Linux kernel dependency to 4.19.0-14-amd64
+
+  [Fixed]
+  * Remove kfree null chip name when module exit
+    This probably causes kernel panic when removing module stage.
+
+ -- Elvis Yao (姚家瑋) <ElvisCW.Yao@moxa.com>  Wed, 31 Mar 2021 11:10:39 +0800
+
 moxa-it87-gpio-driver (5.2+1.2.0+deb10) buster; urgency=medium
 
   [Changed]
