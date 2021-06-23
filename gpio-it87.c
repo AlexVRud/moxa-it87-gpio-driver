@@ -46,6 +46,10 @@
 #define CHIPID		0x20
 #define CHIPREV		0x22
 
+static unsigned short force_id;
+module_param(force_id, ushort, 0);
+MODULE_PARM_DESC(force_id, "Override the detected device ID");
+
 /**
  * struct it87_gpio - it87-specific GPIO chip
  * @chip the underlying gpio_chip structure
@@ -290,7 +294,7 @@ static int __init it87_gpio_init(void)
 	if (rc)
 		return rc;
 
-	chip_type = superio_inw(CHIPID);
+	chip_type = force_id ? force_id : superio_inw(CHIPID);
 	chip_rev  = superio_inb(CHIPREV) & 0x0f;
 	superio_exit();
 
