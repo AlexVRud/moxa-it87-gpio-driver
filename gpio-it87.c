@@ -397,3 +397,4 @@ module_exit(it87_gpio_exit);
 MODULE_AUTHOR("Diego Elio Pettenò <flameeyes@flameeyes.eu>");
 MODULE_DESCRIPTION("GPIO interface for IT87xx Super I/O chips");
 MODULE_LICENSE("GPL");
+MODULE_VERSION("1.3.0");
