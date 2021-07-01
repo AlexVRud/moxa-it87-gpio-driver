@@ -1,3 +1,11 @@
+moxa-it87-gpio-driver (5.2+1.3.0+deb10) buster; urgency=medium
+
+  [Added]
+  * Add force chip ID from module parameter
+  * Add module version '1.3.0'
+
+ -- Elvis Yao <ElvisCW.Yao@moxa.com>  Thu, 01 Jul 2021 09:03:14 +0800
+
 moxa-it87-gpio-driver (5.2+1.2.1+deb10) buster; urgency=medium
 
   [Changed]
