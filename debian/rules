@@ -1,34 +1,20 @@
 #!/usr/bin/make -f
 
-KRELEASE=4.19.0-14-amd64
-OPT=$(shell echo ${DEB_BUILD_OPT})
+include /usr/share/dpkg/pkg-info.mk
+THIS_MODULE=gpio-it87
 
 %:
-	dh $@
+	dh $@ --with dkms
 
-ifneq ($(OPT), signed)
+override_dh_install:
+	dh_install Makefile $(THIS_MODULE)* README.md usr/src/$(DEB_SOURCE)-$(DEB_VERSION_UPSTREAM)/
+	dh_install $(THIS_MODULE).conf usr/lib/modules-load.d/
+
+override_dh_dkms:
+	dh_dkms -V $(DEB_VERSION_UPSTREAM)
+
+override_dh_auto_configure:
 override_dh_auto_build:
-	$(MAKE) KRELEASE=$(KRELEASE) modules
-
+override_dh_auto_test:
 override_dh_auto_install:
-	$(info Skip dh_auto_install)
-
 override_dh_auto_clean:
-	$(MAKE) KRELEASE=$(KRELEASE) clean
-
-override_dh_strip:
-	dh_strip --no-automatic-dbgsym
-else
-override_dh_auto_build:
-	$(info Skip override_dh_auto_build)
-
-override_dh_auto_install:
-	$(info Skip dh_auto_install)
-
-override_dh_auto_clean:
-	$(info Skip override_dh_auto_clean)
-
-override_dh_strip:
-	$(info Skip override_dh_strip)
-
-endif

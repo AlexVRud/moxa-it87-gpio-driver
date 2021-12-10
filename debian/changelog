@@ -1,3 +1,9 @@
+moxa-it87-gpio-driver (5.2+1.3.0+deb11+dkms) unstable; urgency=medium
+
+  * New branch for Debian 11 and DKMS
+
+ -- Alexander Rudalev <a.rudalev@ens.ru>  Fri, 10 Dec 2021 12:31:44 +0300
+
 moxa-it87-gpio-driver (5.2+1.3.0+deb10) buster; urgency=medium
 
   [Added]
